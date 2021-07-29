@@ -1,0 +1,39 @@
+.navbar-icon {
+    max-height: 50px;
+    max-width: 50px;
+    margin-left: 1rem;
+}
+
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url(../img/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+html, body {
+    height: 100%;
+}
+
+.currency-container {
+    float:right;
+    margin-right: 3rem;
+    margin-top: 1rem;
+    height: 30%;
+    width: 15%;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.list-cards {
+    margin: 1rem;
+    max-width: 70%;
+    background-color: transparent;
+    border: none;
+}
