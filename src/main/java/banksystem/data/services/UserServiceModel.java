@@ -1,33 +1,20 @@
-package banksystem.data.entities;
+package banksystem.data.services;
 
-import org.hibernate.validator.constraints.Length;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import java.math.BigDecimal;
 
-@Entity
-@Table(name = "users")
-public class UserEntity extends BaseEntity {
+public class UserServiceModel {
     private String firstName;
     private String middleName;
     private String lastName;
     private Long identificationNumber;
     private String email;
     private String password;
-    private BigDecimal salary;
     private String clientNumber;
+    private BigDecimal salary;
 
-    public UserEntity() {
+    public UserServiceModel() {
     }
 
-    @Length(min = 2, message = "The name must be at least 2 symbols")
-    @Column(name = "first_name", nullable = false)
     public String getFirstName() {
         return firstName;
     }
@@ -36,8 +23,6 @@ public class UserEntity extends BaseEntity {
         this.firstName = firstName;
     }
 
-    @Length(min = 2, message = "The name must be at least 2 symbols")
-    @Column(name = "middle_name", nullable = false)
     public String getMiddleName() {
         return middleName;
     }
@@ -46,8 +31,6 @@ public class UserEntity extends BaseEntity {
         this.middleName = middleName;
     }
 
-    @Length(min = 2, message = "The name must be at least 2 symbols")
-    @Column(name = "last_name", nullable = false)
     public String getLastName() {
         return lastName;
     }
@@ -56,9 +39,6 @@ public class UserEntity extends BaseEntity {
         this.lastName = lastName;
     }
 
-    @Min(1000000000L)
-    @Max(9999999999L)
-    @Column(name = "identification_number", nullable = false)
     public Long getIdentificationNumber() {
         return identificationNumber;
     }
@@ -67,8 +47,6 @@ public class UserEntity extends BaseEntity {
         this.identificationNumber = identificationNumber;
     }
 
-    @Email
-    @Column(name = "email", unique = true, nullable = false)
     public String getEmail() {
         return email;
     }
@@ -77,7 +55,6 @@ public class UserEntity extends BaseEntity {
         this.email = email;
     }
 
-    @Column(name = "password", nullable = false)
     public String getPassword() {
         return password;
     }
@@ -86,7 +63,6 @@ public class UserEntity extends BaseEntity {
         this.password = password;
     }
 
-    @Column(name = "client_number", unique = true, nullable = false)
     public String getClientNumber() {
         return clientNumber;
     }
@@ -95,8 +71,6 @@ public class UserEntity extends BaseEntity {
         this.clientNumber = clientNumber;
     }
 
-    @DecimalMin("1")
-    @Column(name = "salary", nullable = false)
     public BigDecimal getSalary() {
         return salary;
     }

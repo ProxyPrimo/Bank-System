@@ -1,4 +1,4 @@
-package banksystem.data;
+package banksystem.data.bindings;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -9,9 +9,9 @@ public class UserRegisterBindingModel {
     private String firstName;
     private String middleName;
     private String lastName;
-    private Integer identificationNumber;
-    private String password;
+    private Long identificationNumber;
     private String email;
+    private String password;
     private BigDecimal salary;
 
     public UserRegisterBindingModel() {
@@ -47,18 +47,18 @@ public class UserRegisterBindingModel {
         this.lastName = lastName;
     }
 
-    @Min(10)
-    @Max(10)
+    @Min(1000000000L)
+    @Max(9999999999L)
     @NotNull
-    public Integer getIdentificationNumber() {
+    public Long getIdentificationNumber() {
         return identificationNumber;
     }
 
-    public void setIdentificationNumber(Integer identificationNumber) {
+    public void setIdentificationNumber(Long identificationNumber) {
         this.identificationNumber = identificationNumber;
     }
 
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{5,}$\\n"
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{5,}$"
             , message = "The password must contain an upper case letter" +
             ", a lower case letter, a number and must be at least 5 characters long")
     @NotNull
