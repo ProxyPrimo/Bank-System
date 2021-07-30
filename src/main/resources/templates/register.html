@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="~{fragments/header}" />
+<body>
+<th:block th:include="~{fragments/nav}" />
+<main class="container">
+    <div class="container mt-lg-5 border-right border-bottom bg-transparent h-100">
+        <h1 class="w-100 text-light text-center">Register</h1>
+    </div>
+    <div class="row tm-mt-big">
+        <div class="col-12 mx-auto tm-login-col">
+            <div class="tm-block">
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <form th:action="@{/users/register}"
+                              th:object="${userRegisterBindingModel}"
+                              method="POST"
+                              class="tm-login-form row g-3 needs-validation text-light text-center" novalidate>
+                            <div class="col-md-4">
+                                <label for="validationCustom01" class="text-light text-center form-label">First Name</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="validationCustom01"
+                                       th:field="*{firstName}"
+                                       th:errorclass="floatingInputInvalid"
+                                       required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please provide a valid first name
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">Middle Name</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="validationCustom02"
+                                       th:field="*{middleName}"
+                                       th:errorclass="floatingInputInvalid"
+                                       required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid middle name
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom03" class="form-label">Last Name</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="validationCustom03"
+                                       th:field="*{lastName}"
+                                       th:errorclass="floatingInputInvalid"
+                                       required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please provide a valid last name
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom04" class="form-label">Identification Number</label>
+                                <input type="number"
+                                       class="form-control"
+                                       id="validationCustom04"
+                                       th:field="*{identificationNumber}"
+                                       th:errorclass="floatingInputInvalid"
+                                       required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please provide a valid identification number
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustomPassword" class="form-label">Password</label>
+                                <div class="input-group has-validation">
+                                    <input type="password"
+                                           class="form-control"
+                                           id="validationCustomPassword"
+                                           th:field="*{password}"
+                                           th:errorclass="floatingInputInvalid"
+                                           aria-describedby="inputGroupPrepend" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid password
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustomEmail" class="form-label">Email</label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text" id="customEmail">@</span>
+                                    <input type="email"
+                                           class="form-control"
+                                           id="validationCustomEmail"
+                                           th:field="*{email}"
+                                           th:errorclass="floatingInputInvalid"
+                                           aria-describedby="inputGroupPrepend"
+                                           required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid email
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="validationSalary" class="form-label">Salary</label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text" id="salary"></span>
+                                    <input type="number"
+                                           min="1"
+                                           class="form-control"
+                                           id="validationSalary"
+                                           th:field="*{salary}"
+                                           th:errorclass="floatingInputInvalid"
+                                           aria-describedby="inputGroupPrepend"
+                                           required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid salary
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<th:block th:include="~{fragments/footer}" />
+<script src="/static/js/userForm.js"></script>
+</body>
+</html>
